@@ -1,0 +1,38 @@
+body{
+  background: #ffffff;
+}
+h1 {
+  color: #CA7218;
+  text-align: center;
+}
+
+/* Puzzle */
+#PiecesContainer{
+	background: #e7931a;
+	width: 500px;
+	height: 500px;
+	float: left;
+	margin-left: 10px;
+	box-shadow: 0px 0px 10px  2px #d0eb6a;
+}
+
+#puzzle {
+	background: #32cd32 ;
+	width: 500px;
+	height: 500px;
+	float: right;
+	margin-right: 10px;
+	box-shadow: 0px 0px 10px  2px #e7931a;
+}
+.PieceSpot {
+	width: 164.5px;
+	height: 164.5px;
+	float: left;
+}
+
+#PuzzleContainer img {
+	float: left;
+	padding: 1px;
+	width: 164.5px;
+	height: 164.5px;
+}
