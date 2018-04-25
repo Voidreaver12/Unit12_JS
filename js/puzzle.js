@@ -1,3 +1,26 @@
+shuffle();
+
+
+function shuffle() {
+	var container = document.getElementById("PiecesContainer");
+	var pieces = [];
+	for (i = 0; i < 9; i++) {
+		var piece = document.createElement("img");
+		piece.setAttribute("id", ("piece" + (i+1)));
+		piece.setAttribute("src", ("../images/image_part_00" + (i+1) + ".jpg"));
+		piece.setAttribute("alt", ("piece" + (i + 1)));
+		piece.setAttribute("draggable", "true");
+		piece.setAttribute("ondragstart", "start(event)");
+		piece.setAttribute("ondragend", "end(event)");
+		pieces.push(piece);
+	}
+	while (pieces.length > 0) {
+		var i = Math.floor(Math.random() * pieces.length);
+		var piece = pieces[i];
+		pieces.splice(i, 1);
+		container.appendChild(piece);
+	}
+}
 
 function start(e) {
 	e.dataTransfer.effecAllowed = 'move';

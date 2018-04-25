@@ -40,10 +40,9 @@
 <div class="container">
 	<h1> Puzzle Challenge </h1>
 	<button class="btn" onclick="window.location.reload()">Reset</button><br/><br/>
-    <script type="text/javascript" src="../js/puzzle.js"></script>
 	<section id="PuzzleContainer">
 		<div id="PiecesContainer" ondragenter="return enter(event)" ondragover="return over(event)" ondrop="return drop(event)">
-			<img id="piece1" src="../images/image_part_001.jpg" alt="piece1" draggable="true" ondragstart="start(event)" ondragend="end(event)">
+		<!--	<img id="piece1" src="../images/image_part_001.jpg" alt="piece1" draggable="true" ondragstart="start(event)" ondragend="end(event)">
 			<img id="piece2" src="../images/image_part_002.jpg" alt="piece2" draggable="true" ondragstart="start(event)" ondragend="end(event)">
 			<img id="piece3" src="../images/image_part_003.jpg" alt="piece3" draggable="true" ondragstart="start(event)" ondragend="end(event)">
 			<img id="piece4" src="../images/image_part_004.jpg" alt="piece4" draggable="true" ondragstart="start(event)" ondragend="end(event)">
@@ -52,6 +51,7 @@
 			<img id="piece7" src="../images/image_part_007.jpg" alt="piece7" draggable="true" ondragstart="start(event)" ondragend="end(event)">
 			<img id="piece8" src="../images/image_part_008.jpg" alt="piece8" draggable="true" ondragstart="start(event)" ondragend="end(event)">
 			<img id="piece9" src="../images/image_part_009.jpg" alt="piece9" draggable="true" ondragstart="start(event)" ondragend="end(event)">
+		-->
 		</div>
 		<div id="puzzle">
 			<div class="PieceSpot" id="one" ondragenter="return enter(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
@@ -66,4 +66,5 @@
 		</div>
 	</section>
 </div>
+<script type="text/javascript" src="../js/puzzle.js"></script>
 </body>
