@@ -8,8 +8,8 @@ var rainbow = true;
 // other variables
 var canvas = document.getElementById("canvas");
 var board = canvas.getContext("2d");
-var boardWidth = 40;
-var boardHeight = 40;
+var boardWidth = 30;
+var boardHeight = 30;
 var tileWidth = 20;
 var tileHeight = 20;
 var tileCircleRadius = 9;
@@ -111,6 +111,16 @@ function timerFunction() {
     if (gameOver) {
         clearInterval(timer);
         alert(gameOverMessage);
+		var newProgress = (snakeSize / winningSnakeSize) * 100;
+		var oldProgress = 0.0;
+		var storage = localStorage.getItem("progress2");
+		if (!(storage === null)) {
+			oldProgress = parseFloat(storage);
+		}
+		if (oldProgress > newProgress) {
+			newProgress = oldProgress;
+		}
+		localStorage.setItem("progress2", newProgress);
         return;
     }
     addFood();

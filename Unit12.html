@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Unit12_JS</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <a class="navbar-brand" href="#">Unit12_JS</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="Unit12.html">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="challenges/samegame.html">Same Game</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="challenges/snake.html">Snake</a>
+      </li>
+	  <li class="nav-item">
+        <a class="nav-link" href="challenges/puzzle.html">Puzzle</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<br/>
+
+<div class="container">
+  <div class="jumbotron">
+    <h1>Unit12_JS - The Three Challenges</h1>
+    <p id="jumbo">In this activity, you must complete all 3 of the challenges below to earn your prize.</p>
+  </div>
+</div>
+
+<div class="container">
+<div class="row">
+	<div class="col">
+		<div class="card">
+			<img class="card-img-top" src="images/snake.png" alt="Snake card image" style="width:100%">
+			<div class="card-body">
+				<h4 class="card-title">Challenge #1 - Same Game</h4>
+				<p class="card-text" style="height:170px">In this challenge, you will play a simple matching game. Click on a group of clustered tiles with the same color to break them. Larger clusters earn more points. You must complete this challenge with a score of <strong>1000</strong> to pass this challenge!</p>
+				<a href="challenges/samegame.html" class="btn btn-primary d-flex justify-content-around" id="play1">Play</a><br/>
+				<div class="progress"><div class="progress-bar" id="progress1" style="width:0%"></div></div>
+			</div>
+		</div>
+	</div>
+	<div class="col">
+		<div class="card">
+			<img class="card-img-top" src="images/snake.png" alt="Snake card image" style="width:100%">
+			<div class="card-body">
+				<h4 class="card-title">Challenge #2 - Snake</h4>
+				<p class="card-text" style="height:170px">In this challenge, you will play the classic Snake game. Eat food to grow longer, and avoid running into walls or eating yourself. You must reach a snake length of <strong>50</strong> to pass this challenge!</p>
+				<a href="challenges/snake.html" class="btn btn-primary d-flex justify-content-around" id="play2">Play</a><br/>
+				<div class="progress"><div class="progress-bar" id="progress2" style="width:0%"></div></div>
+			</div>
+		</div>
+	</div>
+	<div class="col">
+		<div class="card">
+			<img class="card-img-top" src="images/snake.png" alt="Snake card image" style="width:100%">
+			<div class="card-body">
+				<h4 class="card-title">Challenge #3 - Puzzle</h4>
+				<p class="card-text" style="height:170px">In this challenge, you will complete a simple jigsaw puzzle. You <strong>must</strong> fully complete the puzzle to pass this challenge!</p>
+				<a href="challenges/puzzle.html" class="btn btn-primary d-flex justify-content-around" id="play3">Play</a><br/>
+				<div class="progress"><div class="progress-bar" id="progress3" style="width:0%"></div></div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<br/><br/><br/><br/><br/>
+
+<script>
+if (typeof(Storage) !== "undefined") {
+	if (localStorage.getItem("progress1") === null) {
+		document.getElementById("progress1").style.width = "0%";
+	} else {
+		document.getElementById("progress1").style.width = "" + localStorage.getItem("progress1") + "%";
+	}
+	if (localStorage.getItem("progress2") === null) {
+		document.getElementById("progress2").style.width = "0%";
+	} else {
+		document.getElementById("progress2").style.width = "" + localStorage.getItem("progress2") + "%";
+	}
+	if (localStorage.getItem("progress3") === null) {
+		document.getElementById("progress3").style.width = "0%";
+	} else {
+		document.getElementById("progress3").style.width = "" + localStorage.getItem("progress3") + "%";
+	}
+	if (localStorage.getItem("won1") === null) {
+		document.getElementById("play2").classList.add("disabled");
+		document.getElementById("play3").classList.add("disabled");
+	}
+	if (localStorage.getItem("won2") === null) {
+		document.getElementById("play3").classList.add("disabled");
+	}
+	if (localStorage.getItem("won3") === null) {
+	} else {
+		document.getElementById("jumbo").innerHTML = "Congratulations! You have won all 3 challenges.<br/>Here is your prize:<br/><img src=\"images/cookie.png\" alt=\"Cookie image\">";
+	}
+} else {
+	document.getElementById("progress1").style.width = "0%";
+	document.getElementById("progress2").style.width = "0%";
+	document.getElementById("progress3").style.width = "0%";
+	document.getElementById("jumbo").innerHTML = "Your browser does not support HTML5 local storage.<br/>No cookies for you.";
+}
+</script>
+</body>
+
+</html>
