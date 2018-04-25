@@ -44,5 +44,7 @@ function comparePuzzle(){
     (document.getElementById('piece9').parentNode.id=='nine'))
 	{
 		alert('You won!');
+		localStorage.setItem("won3", "true");
+		localStorage.setItem("progress3", 100);
 	}
 }
