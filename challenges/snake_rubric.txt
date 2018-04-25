@@ -1,0 +1,24 @@
+This assignment is worth 40 points. Requirements:
+(2) Page layout with game board, snake size, and reset button
+(2) Board displays with tiles
+(4) Snake functionality:
+	(2) Arrow keys and WASD keys change snake direction
+	(2) Snake grows upon eating food
+(6) The snake is drawn correctly
+	(3) Snake tail dissapears
+	(3) New snake head appears in the correct direction
+(10) Timer functionality:
+	(3) The timer redraws the game board
+	(3) The timer moves the snake in its current direction
+	(3) The timer spawns food on the board
+	(1) The timer stops when the game is over
+(12) Win/Loss conditions
+	(4) If the snake reaches a size of 50 or larger, player wins
+	(4) If the snake eats himself, player losses
+	(4) If the snake travels outside the canvas boundaries, player losses
+(3) Sound effects
+	(1) Boop sound plays when a piece of food is eaten
+	(1) Winning sound plays when the game is won
+	(1) Dying sound plays when you lose
+(1) Ease of grading criteria:
+	(1) Create a zip file with html, js, and css files
