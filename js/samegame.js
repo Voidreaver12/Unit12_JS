@@ -91,7 +91,6 @@ function checkWin() {
         alert("You won!\nYour final score was: " + score);
         hasWon = true;
         updateProgress();
-        win();
     }
 }
 
@@ -182,9 +181,6 @@ function updateProgress() {
         newProgress = oldProgress;
     }
     localStorage.setItem("progress1", newProgress);
-}
-
-function win() {
     if (score >= winningScore) {
         localStorage.setItem("won1", "true");
     }
