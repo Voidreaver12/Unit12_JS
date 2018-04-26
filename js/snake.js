@@ -120,7 +120,10 @@ function timerFunction() {
 		if (oldProgress > newProgress) {
 			newProgress = oldProgress;
 		}
-		localStorage.setItem("progress2", newProgress);
+        localStorage.setItem("progress2", newProgress);
+        if (snakeSize >= winningSnakeSize) {
+            localStorage.setItem("won2", "true");
+        }
         return;
     }
     addFood();

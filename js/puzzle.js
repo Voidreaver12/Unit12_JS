@@ -1,5 +1,5 @@
 shuffle();
-
+var audio = new Audio('../sounds/snake_food.mp3');
 
 function shuffle() {
 	var container = document.getElementById("PiecesContainer");
@@ -52,6 +52,7 @@ function drop(e){
 	var draggedElement = e.dataTransfer.getData("Text");
   // Place element
 	e.target.appendChild(document.getElementById(draggedElement));
+	audio.play();
 	comparePuzzle();
 }
 
