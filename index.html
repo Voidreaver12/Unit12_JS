@@ -40,7 +40,7 @@
 <div class="container">
   <div class="jumbotron">
     <h1>Unit12_JS - The Three Challenges</h1>
-    <p id="jumbo">In this activity, you must complete all 3 of the challenges below to earn your prize.</p>
+    <p id="jumbo">In this activity, you must complete all 3 of the challenges below to earn your prize. You may use the navigation bar above to skip to later challenges without completing the previous ones, but you will not get a reward unless all 3 have been completed.</p>
   </div>
 </div>
 
@@ -107,7 +107,7 @@ if (typeof(Storage) !== "undefined") {
 	if (localStorage.getItem("won2") === null) {
 		document.getElementById("play3").classList.add("disabled");
 	}
-	if (localStorage.getItem("won3") === null) {
+	if (localStorage.getItem("won3") === null || localStorage.getItem("won2") === null || localStorage.getItem("won1") === null) {
 	} else {
 		document.getElementById("jumbo").innerHTML = "Congratulations! You have won all 3 challenges.<br/>Here is your prize:<br/><img src=\"images/cookie.png\" alt=\"Cookie image\">";
 	}
