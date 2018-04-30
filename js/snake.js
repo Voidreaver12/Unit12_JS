@@ -43,6 +43,22 @@ var timer = setInterval(timerFunction, time);
 drawBoard();
 drawSnake();
 
+function reset() {
+    snakePositionX = [1];
+    snakePositionY = [1];
+    snakeSize = 1;
+    foodPositionX = [];
+    foodPositionY = [];
+    foodColors = [];
+    snakeColors = ["#DDDDDD"];
+    snakeDirection = DIRECTIONS[2];
+    gameOver = false;
+    gameOverMessage = "GAME OVER";
+    clearInterval(timer);
+    timer = setInterval(timerFunction, time);
+}
+
+
 // clear board with dark grey tiles with black outlines
 function drawBoard() {
     for (i = 0; i < boardWidth; i++) {
@@ -223,6 +239,9 @@ function moveSnake() {
                 // increase snake length
                 snakeSize += 1;
                 // play sound
+                if (!foodAudio.paused || foodAudio.currentTime) {
+                    foodAudio.currentTime = 0;
+                }
                 foodAudio.play();
                 // add food color to snake
                 snakeColors.push(foodColors[i]);

@@ -1,5 +1,24 @@
 shuffle();
+var movesLeft = 15;
+var gameOver = false;
 var audio = new Audio('../sounds/snake_food.mp3');
+document.getElementById("moves").innerHTML = "Moves Left: " + movesLeft;
+
+function reset() {
+	var container = document.getElementById("PiecesContainer");
+	container.innerHTML = '';
+	var pieceSpots = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+	for (i = 0; i < 9; i++) {
+		var pieceSpot = document.getElementById(pieceSpots[i]);
+		pieceSpot.innerHTML = '';
+	}
+	shuffle()
+	movesLeft = 15;
+	gameOver = false;
+	document.getElementById("moves").innerHTML = "Moves Left: " + movesLeft;
+}
+
+
 
 function shuffle() {
 	var container = document.getElementById("PiecesContainer");
@@ -23,6 +42,9 @@ function shuffle() {
 }
 
 function start(e) {
+	if (gameOver) {
+		return;
+	}
 	e.dataTransfer.effecAllowed = 'move';
 	e.dataTransfer.setData("Text", e.target.id);
 	e.target.style.opacity = '0.4';
@@ -53,6 +75,8 @@ function drop(e){
   // Place element
 	e.target.appendChild(document.getElementById(draggedElement));
 	audio.play();
+	movesLeft--;
+	document.getElementById("moves").innerHTML = "Moves Left: " + movesLeft;
 	comparePuzzle();
 }
 
@@ -61,14 +85,21 @@ function comparePuzzle(){
 		(document.getElementById('piece2').parentNode.id=='two') &&
 		(document.getElementById('piece3').parentNode.id=='three') &&
 		(document.getElementById('piece4').parentNode.id=='four') &&
-    (document.getElementById('piece5').parentNode.id=='five') &&
+    	(document.getElementById('piece5').parentNode.id=='five') &&
 		(document.getElementById('piece6').parentNode.id=='six') &&
-    (document.getElementById('piece7').parentNode.id=='seven') &&
+    	(document.getElementById('piece7').parentNode.id=='seven') &&
 		(document.getElementById('piece8').parentNode.id=='eight') &&
-    (document.getElementById('piece9').parentNode.id=='nine'))
-	{
-		alert('You won!');
+    	(document.getElementById('piece9').parentNode.id=='nine')) {
 		localStorage.setItem("won3", "true");
 		localStorage.setItem("progress3", 100);
+		gameOver = true;
+		if (confirm('You won!\nWould you like to play again?')) {
+			reset()
+		}
+	} else if (movesLeft <= 0) {
+		if (confirm('You lost! You ran out of moves.\nWould you like to play again?')) {
+			reset()
+		}
+		gameOver = true;
 	}
 }

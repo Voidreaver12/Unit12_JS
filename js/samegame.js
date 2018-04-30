@@ -24,16 +24,27 @@ if (easyTesting) {
 }
 var tiles = [];
 var visited = [];
-for (i = 0; i < boardWidth; i++) {
-    var column = [];
-    var visitedCol = [];
-    for (j = 0; j < boardHeight; j++) {
-        column.push(colors[Math.floor(Math.random() * numColors)]);
-        visitedCol.push(false);
+
+reset();
+
+function reset() {
+    tiles = [];
+    visited = [];
+    for (i = 0; i < boardWidth; i++) {
+        var column = [];
+        var visitedCol = [];
+        for (j = 0; j < boardHeight; j++) {
+            column.push(colors[Math.floor(Math.random() * numColors)]);
+            visitedCol.push(false);
+        }
+        tiles.push(column);
+        visited.push(visitedCol);
     }
-    tiles.push(column);
-    visited.push(visitedCol);
+    drawBoard();
+    score = 0;
+    updateScore();
 }
+
 canvas.addEventListener('click', function(event) {
     var x = Math.floor((event.pageX - canvas.offsetLeft) / tileWidth);
     var y = Math.floor((event.pageY - canvas.offsetTop) / tileHeight);
@@ -49,11 +60,9 @@ canvas.addEventListener('click', function(event) {
         updateScore();
         checkWin();
         checkLose();
+        updateProgress();
     }
 }, false);
-
-drawBoard();
-updateScore();
 
 function checkLose() {
     if (hasWon) return;
@@ -65,7 +74,6 @@ function checkLose() {
         }
     }
     alert("You lose!\nThere are no more available matches.");
-    updateProgress();
 }
 
 function validClick(x, y) {
@@ -90,7 +98,6 @@ function checkWin() {
     if (tilesCleared >= (boardWidth * boardHeight)) {
         alert("You won!\nYour final score was: " + score);
         hasWon = true;
-        updateProgress();
     }
 }
 
